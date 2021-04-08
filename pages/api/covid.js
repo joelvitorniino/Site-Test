@@ -3,8 +3,10 @@ async function Covid(request, response) {
     const covidJSON = await covid1.json();
     const cases = covidJSON.cases;
     const deaths = covidJSON.deaths;
+    const dynamicDate = new Date();
 
     response.json({
+        date: dynamicDate.toGMTString(),
         cases: cases,
         deaths: deaths
     });
